@@ -9,7 +9,14 @@
     "build": "backpack build"
   },
   "keywords": [
-    "universign"
+    "nodejs",
+    "backend",
+    "boilerplate",
+    "sequelize",
+    "backpack",
+    "babel",
+    "starter",
+    "mysql"
   ],
   "author": "Anes Medjamia (DEVMEISTER)",
   "license": "MIT",

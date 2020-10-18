@@ -1,17 +1,17 @@
 const development = {
-  database: 'databsename',
-  username: 'username',
-  password: 'password',
-  host: 'localhost',
-  dialect: 'mysql',
+  database: process.env.DEVELOP_DB_NAME,
+  username: process.env.DEVELOP_DB_USER,
+  password: process.env.DEVELOP_DB_PASS,
+  host: process.env.DEVELOP_DB_HOST,
+  dialect: 'postgres',
 }
 
 const testing = {
-  database: 'databasename',
-  username: 'username',
-  password: 'password',
-  host: 'localhost',
-  dialect: 'mysql',
+  database: process.env.STAGING_DB_NAME,
+  username: process.env.STAGING_DB_USER,
+  password: process.env.STAGING_DB_PASS,
+  host: process.env.STAGING_DB_HOST,
+  dialect: 'postgres',
 }
 
 const production = {
@@ -19,7 +19,7 @@ const production = {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   host: process.env.DB_HOST || 'localhost',
-  dialect: 'mysql',
+  dialect: 'postgres',
 }
 
 module.exports = {

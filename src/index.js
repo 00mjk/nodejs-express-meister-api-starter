@@ -12,15 +12,16 @@ const cors = require('cors')
 const config = require('./config')
 const { DatabaseService } = require('./services')
 
-// environment: development, staging, testing, production
-const environment = process.env.NODE_ENV
+// serverConfig: development, staging, production
+const allowedConfigs = ['development', 'staging', 'production']
+const serverConfig = process.env.SERVER_CONFIG || 'production'
 
 /**
  * express application
  */
 const app = express()
 const server = http.Server(app)
-const DB = DatabaseService(environment, config.migrate).start()
+const DB = DatabaseService.start()
 
 // Express routes
 
@@ -44,18 +45,14 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 server.listen(config.port, () => {
-  if (
-    environment !== 'production' &&
-    environment !== 'development' &&
-    environment !== 'testing'
-  ) {
+  if (!allowedConfigs.includes(serverConfig)) {
     console.error(
-      `NODE_ENV is set to ${environment}, but only production and development are valid.`,
+      `SERVER_CONFIG is set to ${serverConfig}, but only production and development are valid.`,
     )
     process.exit(1)
   }
   console.log(
-    `Server is runing in ${environment} mode on port ${config.port}`,
+    `Server is running with ${serverConfig} config on port ${config.port}`,
   )
   return DB
 })

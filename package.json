@@ -5,12 +5,12 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index",
-    "start:dev": "cross-env NODE_ENV=development node ./build/main.js",
-    "start:staging": "cross-env NODE_ENV=testing node ./build/main.js",
-    "start:prod": "cross-env NODE_ENV=production node ./build/main.js",
-    "dev": "cross-env NODE_ENV=development backpack dev",
-    "staging": "cross-env NODE_ENV=testing backpack dev",
-    "prod": "cross-env NODE_ENV=production backpack dev",
+    "start:dev": "cross-env SERVER_CONFIG=development node ./build/main.js",
+    "start:staging": "cross-env SERVER_CONFIG=staging node ./build/main.js",
+    "start:prod": "cross-env SERVER_CONFIG=production node ./build/main.js",
+    "dev": "cross-env SERVER_CONFIG=development backpack dev",
+    "staging": "cross-env SERVER_CONFIG=staging backpack dev",
+    "prod": "cross-env SERVER_CONFIG=production backpack dev",
     "build": "backpack build"
   },
   "keywords": [

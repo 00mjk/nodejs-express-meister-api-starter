@@ -6,7 +6,7 @@ const development = {
   dialect: 'postgres',
 }
 
-const testing = {
+const staging = {
   database: process.env.STAGING_DB_NAME,
   username: process.env.STAGING_DB_USER,
   password: process.env.STAGING_DB_PASS,
@@ -24,6 +24,6 @@ const production = {
 
 module.exports = {
   development,
-  testing,
+  staging,
   production,
 }

@@ -4,7 +4,7 @@ const connection = require('./Connection')
 
 let database
 
-switch (process.env.NODE_ENV) {
+switch (process.env.SERVER_CONFIG) {
   case 'production':
     database = new Sequelize(
       connection.production.database,
@@ -25,14 +25,14 @@ switch (process.env.NODE_ENV) {
       },
     )
     break
-  case 'testing':
+  case 'staging':
     database = new Sequelize(
-      connection.testing.database,
-      connection.testing.username,
-      connection.testing.password,
+      connection.staging.database,
+      connection.staging.username,
+      connection.staging.password,
       {
-        host: connection.testing.host,
-        dialect: connection.testing.dialect,
+        host: connection.staging.host,
+        dialect: connection.staging.dialect,
         define: {
           timestamps: false,
         },

@@ -40,7 +40,8 @@
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.3",
-    "uuidv4": "^6.2.1"
+    "uuidv4": "^6.2.1",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",

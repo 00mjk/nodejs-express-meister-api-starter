@@ -10,7 +10,7 @@ const cors = require('cors')
  * server configuration
  */
 const config = require('./config')
-const { DatabaseService } = require('./services')
+const { DatabaseService, LoggerService } = require('./services')
 
 // serverConfig: development, staging, production
 const allowedConfigs = ['development', 'staging', 'production']
@@ -46,12 +46,12 @@ app.use(bodyParser.json())
 
 server.listen(config.port, () => {
   if (!allowedConfigs.includes(serverConfig)) {
-    console.error(
+    LoggerService.logger.error(
       `SERVER_CONFIG is set to ${serverConfig}, but only production and development are valid.`,
     )
     process.exit(1)
   }
-  console.log(
+  LoggerService.logger.info(
     `Server is running with ${serverConfig} config on port ${config.port}`,
   )
   return DB

@@ -1,5 +1,5 @@
 {
-  "name": "sequelize-nodejs-meister-starter",
+  "name": "nodejs-express-meister-api-starter",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",

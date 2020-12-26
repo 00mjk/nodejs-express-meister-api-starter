@@ -11,11 +11,10 @@ const LoggerService = () => {
   })
 
   const serverError = (error) => {
-    logger.error(
-      '[Server Error]',
-      { tags: 'server error, code 500' },
+    logger.error('[Server Error]', {
+      tags: 'server error, code 500',
       error,
-    )
+    })
   }
   return { logger, serverError }
 }
